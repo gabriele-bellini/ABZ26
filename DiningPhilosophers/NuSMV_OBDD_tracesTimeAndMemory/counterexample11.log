@@ -1,0 +1,199 @@
+*** This is NuSMV 2.6.0 (compiled on Wed Oct 14 15:36:56 2015)
+*** Enabled addons are: compass
+*** For more information on NuSMV see <http://nusmv.fbk.eu>
+*** or email to <nusmv-users@list.fbk.eu>.
+*** Please report bugs to <Please report bugs to <nusmv-users@fbk.eu>>
+
+*** Copyright (c) 2010-2014, Fondazione Bruno Kessler
+
+*** This version of NuSMV is linked to the CUDD library version 2.4.1
+*** Copyright (c) 1995-2004, Regents of the University of Colorado
+
+*** This version of NuSMV is linked to the MiniSat SAT solver. 
+*** See http://minisat.se/MiniSat.html
+*** Copyright (c) 2003-2006, Niklas Een, Niklas Sorensson
+*** Copyright (c) 2007-2010, Niklas Sorensson
+
+-- specification AG ((((((((((hungry_11 | hungry_1) | hungry_10) | hungry_3) | hungry_2) | hungry_5) | hungry_4) | hungry_7) | hungry_6) | hungry_9) | hungry_8)  is false
+-- as demonstrated by the following execution sequence
+Trace Description: CTL Counterexample 
+Trace Type: Counterexample 
+  -> State: 1.1 <-
+    eating_1 = FALSE
+    eating_10 = FALSE
+    eating_11 = FALSE
+    eating_2 = FALSE
+    eating_3 = FALSE
+    eating_4 = FALSE
+    eating_5 = FALSE
+    eating_6 = FALSE
+    eating_7 = FALSE
+    eating_8 = FALSE
+    eating_9 = FALSE
+    hungry_1 = TRUE
+    hungry_10 = TRUE
+    hungry_11 = TRUE
+    hungry_2 = TRUE
+    hungry_3 = TRUE
+    hungry_4 = TRUE
+    hungry_5 = TRUE
+    hungry_6 = TRUE
+    hungry_7 = TRUE
+    hungry_8 = TRUE
+    hungry_9 = TRUE
+    owner_1 = -2147483647
+    owner_10 = -2147483647
+    owner_11 = -2147483647
+    owner_2 = -2147483647
+    owner_3 = -2147483647
+    owner_4 = -2147483647
+    owner_5 = -2147483647
+    owner_6 = -2147483647
+    owner_7 = -2147483647
+    owner_8 = -2147483647
+    owner_9 = -2147483647
+    var_$didIeatEnought01_1 = FALSE
+    var_$p_0 = 1
+    right_fork_9 = 10
+    right_fork_8 = 9
+    right_fork_7 = 8
+    right_fork_6 = 7
+    right_fork_5 = 6
+    right_fork_4 = 5
+    right_fork_3 = 4
+    right_fork_2 = 3
+    right_fork_11 = 1
+    right_fork_10 = 11
+    right_fork_1 = 2
+    left_fork_9 = 8
+    left_fork_8 = 7
+    left_fork_7 = 6
+    left_fork_6 = 5
+    left_fork_5 = 4
+    left_fork_4 = 3
+    left_fork_3 = 2
+    left_fork_2 = 1
+    left_fork_11 = 10
+    left_fork_10 = 9
+    left_fork_1 = 11
+  -> State: 1.2 <-
+    eating_1 = TRUE
+    owner_11 = 1
+    owner_2 = 1
+    var_$p_0 = 8
+  -> State: 1.3 <-
+    eating_8 = TRUE
+    owner_7 = 8
+    owner_9 = 8
+    var_$didIeatEnought01_1 = TRUE
+  -> State: 1.4 <-
+    hungry_8 = FALSE
+    var_$p_0 = 1
+  -> State: 1.5 <-
+    hungry_1 = FALSE
+    var_$didIeatEnought01_1 = FALSE
+    var_$p_0 = 8
+  -> State: 1.6 <-
+    eating_8 = FALSE
+    owner_7 = -2147483647
+    owner_9 = -2147483647
+    var_$p_0 = 1
+  -> State: 1.7 <-
+    eating_1 = FALSE
+    owner_11 = -2147483647
+    owner_2 = -2147483647
+    var_$p_0 = 10
+  -> State: 1.8 <-
+    eating_10 = TRUE
+    owner_11 = 10
+    owner_9 = 10
+    var_$p_0 = 2
+  -> State: 1.9 <-
+    eating_2 = TRUE
+    owner_1 = 2
+    owner_3 = 2
+    var_$p_0 = 9
+  -> State: 1.10 <-
+    eating_9 = TRUE
+    owner_10 = 9
+    owner_8 = 9
+    var_$didIeatEnought01_1 = TRUE
+  -> State: 1.11 <-
+    hungry_9 = FALSE
+    var_$p_0 = 2
+  -> State: 1.12 <-
+    hungry_2 = FALSE
+    var_$didIeatEnought01_1 = FALSE
+    var_$p_0 = 9
+  -> State: 1.13 <-
+    eating_9 = FALSE
+    owner_10 = -2147483647
+    owner_8 = -2147483647
+    var_$p_0 = 2
+  -> State: 1.14 <-
+    eating_2 = FALSE
+    owner_1 = -2147483647
+    owner_3 = -2147483647
+    var_$p_0 = 11
+  -> State: 1.15 <-
+    eating_11 = TRUE
+    owner_1 = 11
+    owner_10 = 11
+    var_$p_0 = 5
+  -> State: 1.16 <-
+    eating_5 = TRUE
+    owner_4 = 5
+    owner_6 = 5
+    var_$didIeatEnought01_1 = TRUE
+  -> State: 1.17 <-
+    hungry_5 = FALSE
+    var_$didIeatEnought01_1 = FALSE
+  -> State: 1.18 <-
+    eating_5 = FALSE
+    owner_4 = -2147483647
+    owner_6 = -2147483647
+    var_$p_0 = 3
+  -> State: 1.19 <-
+    eating_3 = TRUE
+    owner_2 = 3
+    owner_4 = 3
+    var_$p_0 = 6
+  -> State: 1.20 <-
+    eating_6 = TRUE
+    owner_5 = 6
+    owner_7 = 6
+    var_$didIeatEnought01_1 = TRUE
+  -> State: 1.21 <-
+    hungry_6 = FALSE
+    var_$didIeatEnought01_1 = FALSE
+  -> State: 1.22 <-
+    eating_6 = FALSE
+    owner_5 = -2147483647
+    owner_7 = -2147483647
+    var_$p_0 = 4
+  -> State: 1.23 <-
+    eating_4 = TRUE
+    owner_3 = 4
+    owner_5 = 4
+    var_$p_0 = 7
+  -> State: 1.24 <-
+    eating_7 = TRUE
+    owner_6 = 7
+    owner_8 = 7
+    var_$didIeatEnought01_1 = TRUE
+  -> State: 1.25 <-
+    hungry_7 = FALSE
+    var_$p_0 = 4
+  -> State: 1.26 <-
+    hungry_4 = FALSE
+    var_$p_0 = 3
+  -> State: 1.27 <-
+    hungry_3 = FALSE
+    var_$p_0 = 11
+  -> State: 1.28 <-
+    hungry_11 = FALSE
+    var_$p_0 = 10
+  -> State: 1.29 <-
+    hungry_10 = FALSE
+    var_$didIeatEnought01_1 = FALSE
+    var_$p_0 = 1

@@ -1,0 +1,403 @@
+--file /home/x/Documents/eclipse_asmeta_smv_2024_06_linux_x86_64/asmeta_linux_x86_64/workspace/filosofi/philosophers15.smv
+-- options: flatten? true
+MODULE main
+	VAR
+		eating_1: boolean; --controlled
+		eating_10: boolean; --controlled
+		eating_11: boolean; --controlled
+		eating_12: boolean; --controlled
+		eating_13: boolean; --controlled
+		eating_14: boolean; --controlled
+		eating_15: boolean; --controlled
+		eating_2: boolean; --controlled
+		eating_3: boolean; --controlled
+		eating_4: boolean; --controlled
+		eating_5: boolean; --controlled
+		eating_6: boolean; --controlled
+		eating_7: boolean; --controlled
+		eating_8: boolean; --controlled
+		eating_9: boolean; --controlled
+		hungry_1: boolean; --controlled
+		hungry_10: boolean; --controlled
+		hungry_11: boolean; --controlled
+		hungry_12: boolean; --controlled
+		hungry_13: boolean; --controlled
+		hungry_14: boolean; --controlled
+		hungry_15: boolean; --controlled
+		hungry_2: boolean; --controlled
+		hungry_3: boolean; --controlled
+		hungry_4: boolean; --controlled
+		hungry_5: boolean; --controlled
+		hungry_6: boolean; --controlled
+		hungry_7: boolean; --controlled
+		hungry_8: boolean; --controlled
+		hungry_9: boolean; --controlled
+		owner_1: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_10: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_11: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_12: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_13: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_14: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_15: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_2: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_3: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_4: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_5: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_6: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_7: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_8: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		owner_9: {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}; --controlled
+		--declaration of choose variables
+		var_$didIeatEnought2021_1: boolean;
+		var_$p_0: 1..15;
+	DEFINE
+		left_fork_1 := 15;
+		left_fork_10 := 9;
+		left_fork_11 := 10;
+		left_fork_12 := 11;
+		left_fork_13 := 12;
+		left_fork_14 := 13;
+		left_fork_15 := 14;
+		left_fork_2 := 1;
+		left_fork_3 := 2;
+		left_fork_4 := 3;
+		left_fork_5 := 4;
+		left_fork_6 := 5;
+		left_fork_7 := 6;
+		left_fork_8 := 7;
+		left_fork_9 := 8;
+		right_fork_1 := 2;
+		right_fork_10 := 11;
+		right_fork_11 := 12;
+		right_fork_12 := 13;
+		right_fork_13 := 14;
+		right_fork_14 := 15;
+		right_fork_15 := 1;
+		right_fork_2 := 3;
+		right_fork_3 := 4;
+		right_fork_4 := 5;
+		right_fork_5 := 6;
+		right_fork_6 := 7;
+		right_fork_7 := 8;
+		right_fork_8 := 9;
+		right_fork_9 := 10;
+	ASSIGN
+		init(eating_1) := FALSE;
+		init(eating_10) := FALSE;
+		init(eating_11) := FALSE;
+		init(eating_12) := FALSE;
+		init(eating_13) := FALSE;
+		init(eating_14) := FALSE;
+		init(eating_15) := FALSE;
+		init(eating_2) := FALSE;
+		init(eating_3) := FALSE;
+		init(eating_4) := FALSE;
+		init(eating_5) := FALSE;
+		init(eating_6) := FALSE;
+		init(eating_7) := FALSE;
+		init(eating_8) := FALSE;
+		init(eating_9) := FALSE;
+		init(hungry_1) := TRUE;
+		init(hungry_10) := TRUE;
+		init(hungry_11) := TRUE;
+		init(hungry_12) := TRUE;
+		init(hungry_13) := TRUE;
+		init(hungry_14) := TRUE;
+		init(hungry_15) := TRUE;
+		init(hungry_2) := TRUE;
+		init(hungry_3) := TRUE;
+		init(hungry_4) := TRUE;
+		init(hungry_5) := TRUE;
+		init(hungry_6) := TRUE;
+		init(hungry_7) := TRUE;
+		init(hungry_8) := TRUE;
+		init(hungry_9) := TRUE;
+		init(owner_1) := -2147483647;
+		init(owner_10) := -2147483647;
+		init(owner_11) := -2147483647;
+		init(owner_12) := -2147483647;
+		init(owner_13) := -2147483647;
+		init(owner_14) := -2147483647;
+		init(owner_15) := -2147483647;
+		init(owner_2) := -2147483647;
+		init(owner_3) := -2147483647;
+		init(owner_4) := -2147483647;
+		init(owner_5) := -2147483647;
+		init(owner_6) := -2147483647;
+		init(owner_7) := -2147483647;
+		init(owner_8) := -2147483647;
+		init(owner_9) := -2147483647;
+		next(eating_1) :=
+			case
+				((var_$p_0 = 1) & (!(hungry_1) & (((owner_15 = 1) & eating_1) & (owner_2 = 1)))): FALSE;
+				((var_$p_0 = 1) & (((owner_2 = -2147483647) & (owner_15 = -2147483647)) & (!(eating_1) & hungry_1))): TRUE;
+				TRUE: eating_1;
+			esac;
+		next(eating_10) :=
+			case
+				((((owner_11 = -2147483647) & (owner_9 = -2147483647)) & (!(eating_10) & hungry_10)) & (var_$p_0 = 10)): TRUE;
+				((!(hungry_10) & (((owner_9 = 10) & eating_10) & (owner_11 = 10))) & (var_$p_0 = 10)): FALSE;
+				TRUE: eating_10;
+			esac;
+		next(eating_11) :=
+			case
+				((!(hungry_11) & ((owner_12 = 11) & ((owner_10 = 11) & eating_11))) & (var_$p_0 = 11)): FALSE;
+				(((hungry_11 & !(eating_11)) & ((owner_12 = -2147483647) & (owner_10 = -2147483647))) & (var_$p_0 = 11)): TRUE;
+				TRUE: eating_11;
+			esac;
+		next(eating_12) :=
+			case
+				((var_$p_0 = 12) & (!(hungry_12) & ((eating_12 & (owner_11 = 12)) & (owner_13 = 12)))): FALSE;
+				((var_$p_0 = 12) & ((hungry_12 & !(eating_12)) & ((owner_13 = -2147483647) & (owner_11 = -2147483647)))): TRUE;
+				TRUE: eating_12;
+			esac;
+		next(eating_13) :=
+			case
+				((((owner_12 = -2147483647) & (owner_14 = -2147483647)) & (hungry_13 & !(eating_13))) & (var_$p_0 = 13)): TRUE;
+				((!(hungry_13) & (((owner_12 = 13) & eating_13) & (owner_14 = 13))) & (var_$p_0 = 13)): FALSE;
+				TRUE: eating_13;
+			esac;
+		next(eating_14) :=
+			case
+				(((hungry_14 & !(eating_14)) & ((owner_13 = -2147483647) & (owner_15 = -2147483647))) & (var_$p_0 = 14)): TRUE;
+				((var_$p_0 = 14) & (!(hungry_14) & ((eating_14 & (owner_13 = 14)) & (owner_15 = 14)))): FALSE;
+				TRUE: eating_14;
+			esac;
+		next(eating_15) :=
+			case
+				((var_$p_0 = 15) & (((owner_1 = -2147483647) & (owner_14 = -2147483647)) & (hungry_15 & !(eating_15)))): TRUE;
+				((var_$p_0 = 15) & (((eating_15 & (owner_14 = 15)) & (owner_1 = 15)) & !(hungry_15))): FALSE;
+				TRUE: eating_15;
+			esac;
+		next(eating_2) :=
+			case
+				((((owner_3 = 2) & ((owner_1 = 2) & eating_2)) & !(hungry_2)) & (var_$p_0 = 2)): FALSE;
+				((var_$p_0 = 2) & (((owner_3 = -2147483647) & (owner_1 = -2147483647)) & (!(eating_2) & hungry_2))): TRUE;
+				TRUE: eating_2;
+			esac;
+		next(eating_3) :=
+			case
+				(((!(eating_3) & hungry_3) & ((owner_4 = -2147483647) & (owner_2 = -2147483647))) & (var_$p_0 = 3)): TRUE;
+				((var_$p_0 = 3) & (((owner_4 = 3) & (eating_3 & (owner_2 = 3))) & !(hungry_3))): FALSE;
+				TRUE: eating_3;
+			esac;
+		next(eating_4) :=
+			case
+				(((((owner_3 = 4) & eating_4) & (owner_5 = 4)) & !(hungry_4)) & (var_$p_0 = 4)): FALSE;
+				(((!(eating_4) & hungry_4) & ((owner_3 = -2147483647) & (owner_5 = -2147483647))) & (var_$p_0 = 4)): TRUE;
+				TRUE: eating_4;
+			esac;
+		next(eating_5) :=
+			case
+				((var_$p_0 = 5) & (((eating_5 & (owner_4 = 5)) & (owner_6 = 5)) & !(hungry_5))): FALSE;
+				((((owner_4 = -2147483647) & (owner_6 = -2147483647)) & (!(eating_5) & hungry_5)) & (var_$p_0 = 5)): TRUE;
+				TRUE: eating_5;
+			esac;
+		next(eating_6) :=
+			case
+				((var_$p_0 = 6) & (!(hungry_6) & ((eating_6 & (owner_5 = 6)) & (owner_7 = 6)))): FALSE;
+				((var_$p_0 = 6) & ((!(eating_6) & hungry_6) & ((owner_5 = -2147483647) & (owner_7 = -2147483647)))): TRUE;
+				TRUE: eating_6;
+			esac;
+		next(eating_7) :=
+			case
+				(((!(eating_7) & hungry_7) & ((owner_8 = -2147483647) & (owner_6 = -2147483647))) & (var_$p_0 = 7)): TRUE;
+				((var_$p_0 = 7) & (!(hungry_7) & ((owner_8 = 7) & (eating_7 & (owner_6 = 7))))): FALSE;
+				TRUE: eating_7;
+			esac;
+		next(eating_8) :=
+			case
+				(((!(eating_8) & hungry_8) & ((owner_7 = -2147483647) & (owner_9 = -2147483647))) & (var_$p_0 = 8)): TRUE;
+				((var_$p_0 = 8) & (!(hungry_8) & ((eating_8 & (owner_7 = 8)) & (owner_9 = 8)))): FALSE;
+				TRUE: eating_8;
+			esac;
+		next(eating_9) :=
+			case
+				((((owner_8 = -2147483647) & (owner_10 = -2147483647)) & (!(eating_9) & hungry_9)) & (var_$p_0 = 9)): TRUE;
+				((!(hungry_9) & ((eating_9 & (owner_8 = 9)) & (owner_10 = 9))) & (var_$p_0 = 9)): FALSE;
+				TRUE: eating_9;
+			esac;
+		next(hungry_1) :=
+			case
+				((var_$p_0 = 1) & (hungry_1 & eating_1) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_1;
+			esac;
+		next(hungry_10) :=
+			case
+				((var_$p_0 = 10) & var_$didIeatEnought2021_1 & (hungry_10 & eating_10)): FALSE;
+				TRUE: hungry_10;
+			esac;
+		next(hungry_11) :=
+			case
+				((var_$p_0 = 11) & (hungry_11 & eating_11) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_11;
+			esac;
+		next(hungry_12) :=
+			case
+				((hungry_12 & eating_12) & (var_$p_0 = 12) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_12;
+			esac;
+		next(hungry_13) :=
+			case
+				((hungry_13 & eating_13) & (var_$p_0 = 13) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_13;
+			esac;
+		next(hungry_14) :=
+			case
+				((var_$p_0 = 14) & (hungry_14 & eating_14) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_14;
+			esac;
+		next(hungry_15) :=
+			case
+				((hungry_15 & eating_15) & (var_$p_0 = 15) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_15;
+			esac;
+		next(hungry_2) :=
+			case
+				((var_$p_0 = 2) & (hungry_2 & eating_2) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_2;
+			esac;
+		next(hungry_3) :=
+			case
+				((var_$p_0 = 3) & (hungry_3 & eating_3) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_3;
+			esac;
+		next(hungry_4) :=
+			case
+				((var_$p_0 = 4) & var_$didIeatEnought2021_1 & (hungry_4 & eating_4)): FALSE;
+				TRUE: hungry_4;
+			esac;
+		next(hungry_5) :=
+			case
+				((eating_5 & hungry_5) & (var_$p_0 = 5) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_5;
+			esac;
+		next(hungry_6) :=
+			case
+				((eating_6 & hungry_6) & (var_$p_0 = 6) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_6;
+			esac;
+		next(hungry_7) :=
+			case
+				((var_$p_0 = 7) & var_$didIeatEnought2021_1 & (eating_7 & hungry_7)): FALSE;
+				TRUE: hungry_7;
+			esac;
+		next(hungry_8) :=
+			case
+				((var_$p_0 = 8) & (eating_8 & hungry_8) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_8;
+			esac;
+		next(hungry_9) :=
+			case
+				((eating_9 & hungry_9) & (var_$p_0 = 9) & var_$didIeatEnought2021_1): FALSE;
+				TRUE: hungry_9;
+			esac;
+		next(owner_1) :=
+			case
+				((var_$p_0 = 2) & (((owner_3 = -2147483647) & (owner_1 = -2147483647)) & (!(eating_2) & hungry_2))) & 2 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 2;
+				((var_$p_0 = 15) & (((owner_1 = -2147483647) & (owner_14 = -2147483647)) & (hungry_15 & !(eating_15)))) & 15 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 15;
+				(((((owner_3 = 2) & ((owner_1 = 2) & eating_2)) & !(hungry_2)) & (var_$p_0 = 2)) | ((var_$p_0 = 15) & (((eating_15 & (owner_14 = 15)) & (owner_1 = 15)) & !(hungry_15)))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				TRUE: owner_1;
+			esac;
+		next(owner_10) :=
+			case
+				((((owner_8 = -2147483647) & (owner_10 = -2147483647)) & (!(eating_9) & hungry_9)) & (var_$p_0 = 9)) & 9 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 9;
+				(((hungry_11 & !(eating_11)) & ((owner_12 = -2147483647) & (owner_10 = -2147483647))) & (var_$p_0 = 11)) & 11 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 11;
+				(((!(hungry_9) & ((eating_9 & (owner_8 = 9)) & (owner_10 = 9))) & (var_$p_0 = 9)) | ((!(hungry_11) & ((owner_12 = 11) & ((owner_10 = 11) & eating_11))) & (var_$p_0 = 11))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				TRUE: owner_10;
+			esac;
+		next(owner_11) :=
+			case
+				(((var_$p_0 = 12) & (!(hungry_12) & ((eating_12 & (owner_11 = 12)) & (owner_13 = 12)))) | ((!(hungry_10) & (((owner_9 = 10) & eating_10) & (owner_11 = 10))) & (var_$p_0 = 10))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				((((owner_11 = -2147483647) & (owner_9 = -2147483647)) & (!(eating_10) & hungry_10)) & (var_$p_0 = 10)) & 10 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 10;
+				((var_$p_0 = 12) & ((hungry_12 & !(eating_12)) & ((owner_13 = -2147483647) & (owner_11 = -2147483647)))) & 12 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 12;
+				TRUE: owner_11;
+			esac;
+		next(owner_12) :=
+			case
+				(((!(hungry_11) & ((owner_12 = 11) & ((owner_10 = 11) & eating_11))) & (var_$p_0 = 11)) | ((!(hungry_13) & (((owner_12 = 13) & eating_13) & (owner_14 = 13))) & (var_$p_0 = 13))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				(((hungry_11 & !(eating_11)) & ((owner_12 = -2147483647) & (owner_10 = -2147483647))) & (var_$p_0 = 11)) & 11 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 11;
+				((((owner_12 = -2147483647) & (owner_14 = -2147483647)) & (hungry_13 & !(eating_13))) & (var_$p_0 = 13)) & 13 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 13;
+				TRUE: owner_12;
+			esac;
+		next(owner_13) :=
+			case
+				(((var_$p_0 = 14) & (!(hungry_14) & ((eating_14 & (owner_13 = 14)) & (owner_15 = 14)))) | ((var_$p_0 = 12) & (!(hungry_12) & ((eating_12 & (owner_11 = 12)) & (owner_13 = 12))))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				(((hungry_14 & !(eating_14)) & ((owner_13 = -2147483647) & (owner_15 = -2147483647))) & (var_$p_0 = 14)) & 14 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 14;
+				((var_$p_0 = 12) & ((hungry_12 & !(eating_12)) & ((owner_13 = -2147483647) & (owner_11 = -2147483647)))) & 12 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 12;
+				TRUE: owner_13;
+			esac;
+		next(owner_14) :=
+			case
+				((var_$p_0 = 15) & (((owner_1 = -2147483647) & (owner_14 = -2147483647)) & (hungry_15 & !(eating_15)))) & 15 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 15;
+				((((owner_12 = -2147483647) & (owner_14 = -2147483647)) & (hungry_13 & !(eating_13))) & (var_$p_0 = 13)) & 13 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 13;
+				(((!(hungry_13) & (((owner_12 = 13) & eating_13) & (owner_14 = 13))) & (var_$p_0 = 13)) | ((var_$p_0 = 15) & (((eating_15 & (owner_14 = 15)) & (owner_1 = 15)) & !(hungry_15)))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				TRUE: owner_14;
+			esac;
+		next(owner_15) :=
+			case
+				(((hungry_14 & !(eating_14)) & ((owner_13 = -2147483647) & (owner_15 = -2147483647))) & (var_$p_0 = 14)) & 14 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 14;
+				(((var_$p_0 = 1) & (!(hungry_1) & (((owner_15 = 1) & eating_1) & (owner_2 = 1)))) | ((var_$p_0 = 14) & (!(hungry_14) & ((eating_14 & (owner_13 = 14)) & (owner_15 = 14))))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				((var_$p_0 = 1) & (((owner_2 = -2147483647) & (owner_15 = -2147483647)) & (!(eating_1) & hungry_1))) & 1 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 1;
+				TRUE: owner_15;
+			esac;
+		next(owner_2) :=
+			case
+				(((!(eating_3) & hungry_3) & ((owner_4 = -2147483647) & (owner_2 = -2147483647))) & (var_$p_0 = 3)) & 3 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 3;
+				(((var_$p_0 = 1) & (!(hungry_1) & (((owner_15 = 1) & eating_1) & (owner_2 = 1)))) | ((var_$p_0 = 3) & (((owner_4 = 3) & (eating_3 & (owner_2 = 3))) & !(hungry_3)))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				((var_$p_0 = 1) & (((owner_2 = -2147483647) & (owner_15 = -2147483647)) & (!(eating_1) & hungry_1))) & 1 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 1;
+				TRUE: owner_2;
+			esac;
+		next(owner_3) :=
+			case
+				((var_$p_0 = 2) & (((owner_3 = -2147483647) & (owner_1 = -2147483647)) & (!(eating_2) & hungry_2))) & 2 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 2;
+				(((((owner_3 = 2) & ((owner_1 = 2) & eating_2)) & !(hungry_2)) & (var_$p_0 = 2)) | (((((owner_3 = 4) & eating_4) & (owner_5 = 4)) & !(hungry_4)) & (var_$p_0 = 4))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				(((!(eating_4) & hungry_4) & ((owner_3 = -2147483647) & (owner_5 = -2147483647))) & (var_$p_0 = 4)) & 4 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 4;
+				TRUE: owner_3;
+			esac;
+		next(owner_4) :=
+			case
+				(((!(eating_3) & hungry_3) & ((owner_4 = -2147483647) & (owner_2 = -2147483647))) & (var_$p_0 = 3)) & 3 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 3;
+				((((owner_4 = -2147483647) & (owner_6 = -2147483647)) & (!(eating_5) & hungry_5)) & (var_$p_0 = 5)) & 5 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 5;
+				(((var_$p_0 = 5) & (((eating_5 & (owner_4 = 5)) & (owner_6 = 5)) & !(hungry_5))) | ((var_$p_0 = 3) & (((owner_4 = 3) & (eating_3 & (owner_2 = 3))) & !(hungry_3)))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				TRUE: owner_4;
+			esac;
+		next(owner_5) :=
+			case
+				(((var_$p_0 = 6) & (!(hungry_6) & ((eating_6 & (owner_5 = 6)) & (owner_7 = 6)))) | (((((owner_3 = 4) & eating_4) & (owner_5 = 4)) & !(hungry_4)) & (var_$p_0 = 4))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				(((!(eating_4) & hungry_4) & ((owner_3 = -2147483647) & (owner_5 = -2147483647))) & (var_$p_0 = 4)) & 4 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 4;
+				((var_$p_0 = 6) & ((!(eating_6) & hungry_6) & ((owner_5 = -2147483647) & (owner_7 = -2147483647)))) & 6 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 6;
+				TRUE: owner_5;
+			esac;
+		next(owner_6) :=
+			case
+				(((var_$p_0 = 5) & (((eating_5 & (owner_4 = 5)) & (owner_6 = 5)) & !(hungry_5))) | ((var_$p_0 = 7) & (!(hungry_7) & ((owner_8 = 7) & (eating_7 & (owner_6 = 7)))))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				((((owner_4 = -2147483647) & (owner_6 = -2147483647)) & (!(eating_5) & hungry_5)) & (var_$p_0 = 5)) & 5 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 5;
+				(((!(eating_7) & hungry_7) & ((owner_8 = -2147483647) & (owner_6 = -2147483647))) & (var_$p_0 = 7)) & 7 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 7;
+				TRUE: owner_6;
+			esac;
+		next(owner_7) :=
+			case
+				(((!(eating_8) & hungry_8) & ((owner_7 = -2147483647) & (owner_9 = -2147483647))) & (var_$p_0 = 8)) & 8 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 8;
+				(((var_$p_0 = 6) & (!(hungry_6) & ((eating_6 & (owner_5 = 6)) & (owner_7 = 6)))) | ((var_$p_0 = 8) & (!(hungry_8) & ((eating_8 & (owner_7 = 8)) & (owner_9 = 8))))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				((var_$p_0 = 6) & ((!(eating_6) & hungry_6) & ((owner_5 = -2147483647) & (owner_7 = -2147483647)))) & 6 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 6;
+				TRUE: owner_7;
+			esac;
+		next(owner_8) :=
+			case
+				((((owner_8 = -2147483647) & (owner_10 = -2147483647)) & (!(eating_9) & hungry_9)) & (var_$p_0 = 9)) & 9 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 9;
+				(((!(eating_7) & hungry_7) & ((owner_8 = -2147483647) & (owner_6 = -2147483647))) & (var_$p_0 = 7)) & 7 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 7;
+				(((!(hungry_9) & ((eating_9 & (owner_8 = 9)) & (owner_10 = 9))) & (var_$p_0 = 9)) | ((var_$p_0 = 7) & (!(hungry_7) & ((owner_8 = 7) & (eating_7 & (owner_6 = 7)))))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				TRUE: owner_8;
+			esac;
+		next(owner_9) :=
+			case
+				(((var_$p_0 = 8) & (!(hungry_8) & ((eating_8 & (owner_7 = 8)) & (owner_9 = 8)))) | ((!(hungry_10) & (((owner_9 = 10) & eating_10) & (owner_11 = 10))) & (var_$p_0 = 10))) & -2147483647 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: -2147483647;
+				(((!(eating_8) & hungry_8) & ((owner_7 = -2147483647) & (owner_9 = -2147483647))) & (var_$p_0 = 8)) & 8 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 8;
+				((((owner_11 = -2147483647) & (owner_9 = -2147483647)) & (!(eating_10) & hungry_10)) & (var_$p_0 = 10)) & 10 in {-2147483647, 1, 10, 11, 12, 13, 14, 15, 2, 3, 4, 5, 6, 7, 8, 9}: 10;
+				TRUE: owner_9;
+			esac;
+	INVAR	((var_$p_0 = 14) | (var_$p_0 = 13) | (var_$p_0 = 12) | (var_$p_0 = 11) | (var_$p_0 = 10) | (var_$p_0 = 1) | (var_$p_0 = 2) | (var_$p_0 = 3) | (var_$p_0 = 4) | (var_$p_0 = 5) | (var_$p_0 = 6) | (var_$p_0 = 15) | (var_$p_0 = 7) | (var_$p_0 = 8) | (var_$p_0 = 9));
+	INVAR	(((((var_$p_0 = 8) & var_$didIeatEnought2021_1) | ((var_$p_0 = 8) & !(var_$didIeatEnought2021_1))) | ((((var_$p_0 = 7) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 7) & var_$didIeatEnought2021_1)) | ((((var_$p_0 = 6) & var_$didIeatEnought2021_1) | ((var_$p_0 = 6) & !(var_$didIeatEnought2021_1))) | ((((((((var_$p_0 = 15) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 15) & var_$didIeatEnought2021_1)) | ((((!(var_$didIeatEnought2021_1) & (var_$p_0 = 13)) | ((var_$p_0 = 13) & var_$didIeatEnought2021_1)) | (((!(var_$didIeatEnought2021_1) & (var_$p_0 = 12)) | ((var_$p_0 = 12) & var_$didIeatEnought2021_1)) | (((!(var_$didIeatEnought2021_1) & (var_$p_0 = 11)) | ((var_$p_0 = 11) & var_$didIeatEnought2021_1)) | ((((var_$p_0 = 1) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 1) & var_$didIeatEnought2021_1)) | (((var_$p_0 = 10) & var_$didIeatEnought2021_1) | (!(var_$didIeatEnought2021_1) & (var_$p_0 = 10))))))) | (((var_$p_0 = 14) & var_$didIeatEnought2021_1) | ((var_$p_0 = 14) & !(var_$didIeatEnought2021_1))))) | (((var_$p_0 = 2) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 2) & var_$didIeatEnought2021_1))) | (((var_$p_0 = 3) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 3) & var_$didIeatEnought2021_1))) | (((var_$p_0 = 4) & var_$didIeatEnought2021_1) | ((var_$p_0 = 4) & !(var_$didIeatEnought2021_1)))) | (((var_$p_0 = 5) & !(var_$didIeatEnought2021_1)) | ((var_$p_0 = 5) & var_$didIeatEnought2021_1)))))) | ((!(var_$didIeatEnought2021_1) & (var_$p_0 = 9)) | ((var_$p_0 = 9) & var_$didIeatEnought2021_1)));
+--AsmetaL invariants
+CTLSPEC	AG((hungry_3 | hungry_2 | hungry_5 | hungry_4 | hungry_7 | hungry_6 | hungry_9 | hungry_8 | hungry_15 | hungry_13 | hungry_14 | hungry_11 | hungry_12 | hungry_1 | hungry_10));
