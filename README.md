@@ -1,6 +1,7 @@
-# ABZ26
+# Artifact for "Fuzzing Executable ASMETA Models"
 
-Artifact for the ABZ 2026 submission. This repository includes code, benchmarks, and instructions to reproduce the results.
+This repository contains the artifact for the paper: "Fuzzing executable ASMETA models", to appear in the 12th International Conference on Rigorous State Based Methods ([ABZ 2026](https://abz-conf.org/site/2026/)).
+The artifact includes code, benchmarks, and instructions to reproduce the results.
 
 ## Content
 
