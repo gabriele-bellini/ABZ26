@@ -16,34 +16,25 @@ signature:
 	//functions for Agent Philosophers
 	controlled hungry: PhilosophersID -> Boolean
 	controlled eating: PhilosophersID -> Boolean
-	derived right_fork: PhilosophersID -> ForkID
-	derived left_fork: PhilosophersID -> ForkID
+	static right_fork: PhilosophersID -> ForkID
+	static left_fork: PhilosophersID -> ForkID
     controlled owner: ForkID -> PhilosophersID //records the current exclusive user of a given resource
     
 	static last_fork: ForkID
-	static last_philosofer: PhilosophersID
-   	static first_fork: ForkID
 	static first_philosofer: PhilosophersID
 	
 definitions:
 	domain PhilosophersID = {1 : 6}
 	domain ForkID =         {1 : 6}
 	function last_fork =         6
-	function last_philosofer =   6
-	function first_fork = 1
 	function first_philosofer = 1
 	
 	
 	
-	function right_fork($a in PhilosophersID) =	
-		if $a = last_philosofer then
-			first_fork
-		else
-			$a + 1 // this in an optimization, if we wanted to be semantically correct we would need id($p)-1 with id defined from PhilosophersID to Ids as $p
-		endif
+	function left_fork($a in PhilosophersID) =	$a // this in an optimization, if we wanted to be semantically correct we would need id($p) with id defined from PhilosophersID to Ids as $p
 			
 
-	function left_fork($b in PhilosophersID) =
+	function right_fork($b in PhilosophersID) =
 		if $b = first_philosofer then
 			last_fork
 		else
@@ -100,6 +91,3 @@ default init initial_state:
 	function eating ($p in PhilosophersID) = false
 	function owner ($f in ForkID) = undef                      
 
-		
-		
-		

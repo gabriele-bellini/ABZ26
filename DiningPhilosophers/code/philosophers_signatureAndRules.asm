@@ -22,29 +22,20 @@ signature:
     controlled owner: ForkID -> PhilosophersID //records the current exclusive user of a given resource
     
 	static last_fork: ForkID
-	static last_philosofer: PhilosophersID
-   	static first_fork: ForkID
 	static first_philosofer: PhilosophersID
 	
 definitions:
 	domain PhilosophersID = {1 : 200}
 	domain ForkID =         {1 : 200}
 	function last_fork =         200
-	function last_philosofer =   200
-	function first_fork = 1
 	function first_philosofer = 1
 	
 	
 	
-	function right_fork($a in PhilosophersID) =	
-		if $a = last_philosofer then
-			first_fork
-		else
-			$a + 1 // this in an optimization, if we wanted to be semantically correct we would need id($p)-1 with id defined from PhilosophersID to Ids as $p
-		endif
+	function left_fork($a in PhilosophersID) =	$a // this in an optimization, if we wanted to be semantically correct we would need id($p) with id defined from PhilosophersID to Ids as $p
 			
 
-	function left_fork($b in PhilosophersID) =
+	function right_fork($b in PhilosophersID) =
 		if $b = first_philosofer then
 			last_fork
 		else
