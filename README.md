@@ -12,41 +12,44 @@ This repository contains two main folders:
 
 Subfolders of interest:
 
-- `code`: contains the ASMETA models and fuzzer implementations.
-- `fuzzingExecutionTraces`: contains complete traces of fuzzer executions, including traces with detected assertion violations and examples demonstrating fuzzer scalability.
+- `Asmeta_models`: contains the ASMETA models and fuzzer implementations.
+- `Asmeta_fuzzing_traces`: contains complete traces of fuzzer executions, including traces with detected assertion violations and examples demonstrating fuzzer scalability.
 
 ## Folder structure
 
 ```text
 .
 ├─DiningPhilosophers
-│ ├── code
+│ ├── Asmeta_fuzzing_tracesTimeAndMemory
+│ │   ├── fuzzInvarPhil14.log
+│ │   ├── fuzzInvarPhil200.log.gz
+│ │   ├── fuzzInvar_time14.log
+│ │   ├── fuzzInvar_time200.log
+│ ├── Asmeta_models
 │ │   ├── philosophers6.asm
 │ │   ├── philosophers_fuzzer.asm
 │ │   └── philosophers_signatureAndRules.asm
-│ ├── fuzzingExecutionTraces
-│ │   ├── fuzzPhil9.log
-│ │   ├── fuzzPhil14.log
-│ │   └── fuzzPhil200.log
 │ ├── NuSMV_BMC_SAT_tracesTimeAndMemory
-│ │   ├── bmc_counterexample9.log
-│ │   └── bmc_time9.log
+│ │   ├── bmc_counterexample10.log
+│ │   ├── bmc_time10.log
 │ ├── NuSMV_models
+│ │   ├── philosophers10.smv
 │ │   ├── philosophers14.smv
-│ │   └── philosophers9.smv
-│ └── NuSMV_OBDD_tracesTimeAndMemory
-│     ├── counterexample14.log
-│     ├── time14.log
+│ ├── NuSMV_OBDD_tracesTimeAndMemory
+│ │   ├── counterexample14.log
+│ │   ├── time14.log
+│ └── README.md
 ├─NeedhamSchroederProtocol
-  ├── code
+  ├── Asmeta_models
   │   ├── NeedhamSchroederSpy_Fuzzer.asm
   │   └── NeedhamSchroederSpy_signatureAndRules.asm
-  └── fuzzingExecutionTraces
+  └── Asmeta_fuzzing_traces
       ├── execTrace_3users_1handshake_2Nonces5Messages_32stepPerRun.txt
       ├── execTrace_4users_2handshakes_10Nonces16Messages_32stepPerRun.txt
       ├── execTrace_5user_4handshakes_30Nonces50Messages_100stepPerRun.txt
       ├── execTrace_5user_4handshakes_36nonces60Messages_100stepPerRun.txt
       └── README.md
+
 ```
 
 ## How to run ASMETA
