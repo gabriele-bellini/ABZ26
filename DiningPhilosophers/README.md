@@ -2,7 +2,7 @@
 
 ## Models
 
-- `Asmeta_models` – ASMETA Dining Philosophers model and its fuzzer implementation.  
+- `Asmeta_models` – ASMETA Dining Philosophers model and its fuzzer implementations.  
 - `NuSMV_models` – NuSMV `.smv` models automatically generated from the ASMETA model.  
 
 ## Executions

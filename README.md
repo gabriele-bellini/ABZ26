@@ -21,6 +21,7 @@ Subfolders of interest:
 .
 ├─DiningPhilosophers
 │ ├── Asmeta_fuzzing_tracesTimeAndMemory
+│ │   ├── traceHyperpropertyCheck_5phil.log
 │ │   ├── fuzzInvarPhil14.log
 │ │   ├── fuzzInvarPhil200.log.gz
 │ │   ├── fuzzInvar_time14.log
@@ -28,6 +29,7 @@ Subfolders of interest:
 │ ├── Asmeta_models
 │ │   ├── philosophers6.asm
 │ │   ├── philosophers_fuzzer.asm
+│ │   ├── philosophers_fuzzer_hyperproperty.asm
 │ │   └── philosophers_signatureAndRules.asm
 │ ├── NuSMV_BMC_SAT_tracesTimeAndMemory
 │ │   ├── bmc_counterexample10.log
