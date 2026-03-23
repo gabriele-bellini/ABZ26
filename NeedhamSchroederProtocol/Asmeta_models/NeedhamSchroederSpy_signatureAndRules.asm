@@ -26,7 +26,7 @@ signature:
 	controlled messageNUK: MessageID -> Prod(Nonce, UserID, PubKeyID)
 	controlled messageNNK: MessageID -> Prod(Nonce, Nonce, PubKeyID)
 	controlled messageNK: MessageID -> Prod(Nonce, PubKeyID)
-	controlled hasSentTo: Prod(UserID, Nonce) -> UserID
+	controlled hasSentTo: Prod(UserID, UserID, Nonce) -> Bool
 	
 	derived isFresh: Nonce -> Bool
 	derived decryptNUK: Prod(MessageID, PrivKeyID) -> Prod(Nonce, UserID)
@@ -64,8 +64,8 @@ definitions:
 //	function maxProtocolRuns = 2
 	
 	// These are bigger domains to demonstrate the feasibility  of the approach even in bigger cases
-//	domain Nonce = {1 : 30}
-//	domain MessageID = {1 : 50}
+//	domain Nonce = {1 : 36}
+//	domain MessageID = {1 : 60}
 //	domain UserID = {1 : 5}
 //	domain PubKeyID = {1 : 5}
 //	domain PrivKeyID = {1 : 5}
@@ -137,7 +137,7 @@ definitions:
 				choose $newNonce in Nonce with isFresh($newNonce) = TRUE do 
 					par
 						knowNonce($sender,$newNonce) := TRUE
-						hasSentTo($sender,$newNonce) := $receiver
+						hasSentTo($sender,$receiver,$newNonce) := TRUE
 						isNonceArrivedToReceiver($newNonce) := FALSE
 						choose $message in MessageID with messageType($message) = undef do 
 							par
@@ -175,7 +175,7 @@ definitions:
 									par
 										knowNonce($receiver,$nonce0) := TRUE
 										knowNonce($receiver,$newNonce) := TRUE
-										hasSentTo($receiver,$newNonce) := $exSender
+										hasSentTo($receiver,$exSender,$newNonce) := TRUE
 										isNonceArrivedToReceiver($newNonce) := FALSE
 										choose $response_message in MessageID with messageType($response_message) = undef do 
 											par
@@ -207,14 +207,13 @@ definitions:
 									par
 										knowNonce($receiver,$nonce2) := TRUE
 										isNonceArrivedToReceiver($nonce1) := TRUE
-										let ($exReceiver = hasSentTo($receiver,$nonce1)) in // find the user who was initially sent nonce1
+										choose $exReceiver in UserID with hasSentTo($receiver,$exReceiver,$nonce1) = TRUE do // find the user who was initially sent nonce1
 											choose $response_message in MessageID with messageType($response_message) = undef do 
 												par
 													messageType($response_message) := NK
 													messageNK($response_message) := ($nonce2, pubKeyOf($exReceiver))
 													r_send[$receiver, $exReceiver, $response_message]
 												endpar
-										endlet
 									endpar
 								endif
 							endlet
@@ -284,7 +283,7 @@ definitions:
 							choose $newReceiver in UserID with $newReceiver != $receiver  do // can also send to the previous sender if omit "and $newReceiver != $exSender"
 							par
 								knowNonce($receiver,$nonce0) := TRUE // spy always save all the info it can 				
-								hasSentTo($receiver,$nonce0) := $newReceiver // this is the reality and is true in any case
+								hasSentTo($receiver,$newReceiver,$nonce0) := TRUE // this is the reality and is true in any case
 								// change message and send it again
 								choose $modifyOldMessage in Bool with true do
 									if $modifyOldMessage = TRUE then
@@ -297,7 +296,7 @@ definitions:
 										r_send[$receiver, $newReceiver, $m]
 									else
 										par
-											hasSentTo($exSender,$nonce0) := $newReceiver // this is what T will fake
+											hasSentTo($exSender,$newReceiver,$nonce0) := TRUE // this is what T will fake
 											r_send[$exSender, $newReceiver, $m] // send old message
 										endpar
 									endif

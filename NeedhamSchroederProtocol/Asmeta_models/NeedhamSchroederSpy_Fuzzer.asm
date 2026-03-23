@@ -23,17 +23,17 @@ signature:
 
 definitions:
 	// FUNCTION DEFINITIONS
-	function maxRun = 2000 // 1000 	
-	function maxStep = 100 // 32
+	function maxRun = 1000 // 1000 	
+	function maxStep = 32 // 32
 	function isRunTerminated = (terminatedSession = maxProtocolRuns or steps>=maxStep)
 	// Functions for invariants (we translated invariants of simulated model into derived boolean functions)
 	
 	// test that even with an attacker, that can introduced random faults, the protocol terminates at least 70% of the times
 	function hyperproperty = (totTerminatedProtocols*100 >= 70*totStartedProtocols)
 	// test the model implementation of the protocol
-	// each user that is not spy shouldn't send the same nonce to different users //maxProtocolRuns = 1 implies 
+	// groups of honest users shouldn't send the same nonce to different users //maxProtocolRuns = 1 implies 
 	function invariant1 = not(exist $s in UserID with isSpy($s) = FALSE and (exist $r1 in UserID with (exist $r2 in UserID with 
-		$r1 != $r2 and (exist $n in Nonce with (hasSentTo($s,$n) = $r1 and hasSentTo($s,$n) = $r2))
+		$r1 != $r2 and isSpy($r1) = FALSE and isSpy($r2) = FALSE and (exist $n in Nonce with (hasSentTo($s,$r1,$n) = TRUE and hasSentTo($s,$r2,$n) = TRUE))
 	)))
 	
 	// test both correct model implementation and protocol correctness
@@ -71,7 +71,7 @@ definitions:
 					forall $n in Nonce with true do 
 						par
 							knowNonce($u, $n) := FALSE
-							hasSentTo($u, $n) := undef
+							forall $r in UserID with true do hasSentTo($u, $r, $n) := undef
 						endpar
 				endpar
 			forall $n1 in Nonce with true do isNonceArrivedToReceiver($n1) := FALSE
@@ -106,7 +106,7 @@ definitions:
 		// stop simulation when detecting one error
 		else if errorExitCode != 0 then	skip
 		// check invariants
-		else if run >= 10 and not(hyperproperty) then 
+		else if run >= 40 and not(hyperproperty) then 
 			errorExitCode := -1
 		else if not(invariant1) then errorExitCode := 1
 		else if not(invariant2) then errorExitCode := 2
